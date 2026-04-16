@@ -1,0 +1,48 @@
+databaseChangeLog:
+  - changeSet:
+      id: 04-add-email-to-tb-users
+      author: antigravity
+      context: homolog
+      changes:
+        - addColumn:
+            tableName: tb_users
+            columns:
+              - column:
+                  name: email
+                  type: varchar(150)
+                  constraints:
+                    nullable: false
+                    unique: true
+
+  - changeSet:
+      id: 04-insert-initial-users
+      author: antigravity
+      context: homolog
+      changes:
+        - insert:
+            tableName: tb_users
+            columns:
+              - column: {name: username, value: usuario}
+              - column: {name: email, value: usuario@email.com}
+              - column: {name: password_hash, value: "$2a$10$ICfPSVNTkl53GGeKBRFVbOhb1iNFuiSmc/ujM.SxL/JgLCUzozUTC"}
+              - column: {name: role, value: USUARIO}
+              - column: {name: enabled, valueBoolean: true}
+              - column: {name: created_at, valueDate: now()}
+        - insert:
+            tableName: tb_users
+            columns:
+              - column: {name: username, value: administrador}
+              - column: {name: email, value: admin@email.com}
+              - column: {name: password_hash, value: "$2a$10$ICfPSVNTkl53GGeKBRFVbOhb1iNFuiSmc/ujM.SxL/JgLCUzozUTC"}
+              - column: {name: role, value: ADMINISTRADOR}
+              - column: {name: enabled, valueBoolean: true}
+              - column: {name: created_at, valueDate: now()}
+        - insert:
+            tableName: tb_users
+            columns:
+              - column: {name: username, value: master}
+              - column: {name: email, value: master@email.com}
+              - column: {name: password_hash, value: "$2a$10$ICfPSVNTkl53GGeKBRFVbOhb1iNFuiSmc/ujM.SxL/JgLCUzozUTC"}
+              - column: {name: role, value: MASTER}
+              - column: {name: enabled, valueBoolean: true}
+              - column: {name: created_at, valueDate: now()}

@@ -1,0 +1,85 @@
+databaseChangeLog:
+  - changeSet:
+      id: 06-create-user-permissions-table
+      author: antigravity
+      changes:
+        - createTable:
+            tableName: tb_user_permissions
+            columns:
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    foreignKeyName: fk_user_permissions_user
+                    referencedTableName: tb_users
+                    referencedColumnNames: id
+              - column:
+                  name: permission
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+
+  - changeSet:
+      id: 06-insert-default-user-permissions
+      author: antigravity
+      context: homolog
+      changes:
+        # Administrador: Todas as permissões
+        - sql:
+            sql: |
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'CLIENTE_VIEW' FROM tb_users WHERE username = 'administrador';
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'CLIENTE_ADD' FROM tb_users WHERE username = 'administrador';
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'CLIENTE_EDIT' FROM tb_users WHERE username = 'administrador';
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'CLIENTE_DELETE' FROM tb_users WHERE username = 'administrador';
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'PRODUTO_VIEW' FROM tb_users WHERE username = 'administrador';
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'PRODUTO_ADD' FROM tb_users WHERE username = 'administrador';
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'PRODUTO_EDIT' FROM tb_users WHERE username = 'administrador';
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'PRODUTO_DELETE' FROM tb_users WHERE username = 'administrador';
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'CATEGORIA_VIEW' FROM tb_users WHERE username = 'administrador';
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'CATEGORIA_ADD' FROM tb_users WHERE username = 'administrador';
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'CATEGORIA_EDIT' FROM tb_users WHERE username = 'administrador';
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'CATEGORIA_DELETE' FROM tb_users WHERE username = 'administrador';
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'VENDA_VIEW' FROM tb_users WHERE username = 'administrador';
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'VENDA_ADD' FROM tb_users WHERE username = 'administrador';
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'VENDA_EDIT' FROM tb_users WHERE username = 'administrador';
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'VENDA_DELETE' FROM tb_users WHERE username = 'administrador';
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'USUARIO_VIEW' FROM tb_users WHERE username = 'administrador';
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'USUARIO_ADD' FROM tb_users WHERE username = 'administrador';
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'USUARIO_EDIT' FROM tb_users WHERE username = 'administrador';
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'USUARIO_DELETE' FROM tb_users WHERE username = 'administrador';
+        # Usuario: Apenas Visualizar
+        - sql:
+            sql: |
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'CLIENTE_VIEW' FROM tb_users WHERE username = 'usuario';
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'PRODUTO_VIEW' FROM tb_users WHERE username = 'usuario';
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'CATEGORIA_VIEW' FROM tb_users WHERE username = 'usuario';
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'VENDA_VIEW' FROM tb_users WHERE username = 'usuario';
+              INSERT INTO tb_user_permissions (user_id, permission)
+              SELECT id, 'USUARIO_VIEW' FROM tb_users WHERE username = 'usuario';

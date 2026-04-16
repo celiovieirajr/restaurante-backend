@@ -1,0 +1,13 @@
+jwt:
+  secret: "${JWT_SECRET:dGhpcy1pcy1hLXZlcnktc2VjdXJlLXNlY3JldC1rZXktZm9yLWRldmVsb3BtZW50LW9ubHktZG8tbm90LXVzZS1pbi1wcm9kdWN0aW9u}"
+  expiration:
+    usuario: 1800 # 30 minutes
+    administrador: 3600 # 60 minutes
+    refresh: 604800 # 7 days
+    master: 3153600000 # 100 years (effectively non-expiring)
+  refresh-strategy: PERSISTENT # Options: PERSISTENT, ROTATING
+
+logging:
+  level:
+    com.restaurante.backend.security: DEBUG
+    SECURITY_AUDIT: INFO

@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: 05-add-status-to-sale
+      author: antigravity
+      changes:
+        - addColumn:
+            tableName: tb_sales
+            columns:
+              - column:
+                  name: status
+                  type: VARCHAR(255)
+                  defaultValue: EM_APROVACAO
+                  constraints:
+                    nullable: false
+        - update:
+            tableName: tb_sales
+            columns:
+              - column: { name: status, value: EM_APROVACAO }
+            where: "id = 1"
+        - update:
+            tableName: tb_sales
+            columns:
+              - column: { name: status, value: EM_PRODUCAO }
+            where: "id = 2"
+        - update:
+            tableName: tb_sales
+            columns:
+              - column: { name: status, value: EM_ENTREGA }
+            where: "id = 3"
+        - update:
+            tableName: tb_sales
+            columns:
+              - column: { name: status, value: FINALIZADA }
+            where: "id = 4 OR id = 5"
+        - update:
+            tableName: tb_sales
+            columns:
+              - column: { name: status, value: FINALIZADA }
+            where: "status IS NULL"

@@ -1,0 +1,207 @@
+databaseChangeLog:
+  - changeSet:
+      id: 01-create-tb-category
+      author: antigravity
+      changes:
+        - createTable:
+            tableName: tb_categories
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(255)
+              - column:
+                  name: created_at
+                  type: timestamp
+              - column:
+                  name: updated_at
+                  type: timestamp
+
+  - changeSet:
+      id: 01-create-tb-customer
+      author: antigravity
+      changes:
+        - createTable:
+            tableName: tb_customers
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(255)
+              - column:
+                  name: cpf
+                  type: varchar(255)
+                  constraints:
+                    unique: true
+              - column:
+                  name: phone
+                  type: varchar(255)
+              - column:
+                  name: birth_date
+                  type: date
+              - column:
+                  name: cep
+                  type: varchar(255)
+              - column:
+                  name: logradouro
+                  type: varchar(255)
+              - column:
+                  name: numero
+                  type: varchar(20)
+              - column:
+                  name: complemento
+                  type: varchar(255)
+              - column:
+                  name: unidade
+                  type: varchar(255)
+              - column:
+                  name: bairro
+                  type: varchar(255)
+              - column:
+                  name: localidade
+                  type: varchar(255)
+              - column:
+                  name: uf
+                  type: varchar(255)
+              - column:
+                  name: estado
+                  type: varchar(255)
+              - column:
+                  name: regiao
+                  type: varchar(255)
+              - column:
+                  name: ibge
+                  type: varchar(255)
+              - column:
+                  name: created_at
+                  type: timestamp
+              - column:
+                  name: updated_at
+                  type: timestamp
+
+  - changeSet:
+      id: 01-create-tb-product
+      author: antigravity
+      changes:
+        - createTable:
+            tableName: tb_products
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(255)
+              - column:
+                  name: sale_price
+                  type: decimal(10,2)
+              - column:
+                  name: cost_price
+                  type: decimal(10,2)
+              - column:
+                  name: image_url
+                  type: varchar(255)
+              - column:
+                  name: category_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_product_category
+                    references: tb_categories(id)
+              - column:
+                  name: created_at
+                  type: timestamp
+              - column:
+                  name: updated_at
+                  type: timestamp
+
+  - changeSet:
+      id: 01-create-tb-sale
+      author: antigravity
+      changes:
+        - createTable:
+            tableName: tb_sales
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: customer_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_sale_customer
+                    references: tb_customers(id)
+              - column:
+                  name: discount
+                  type: decimal(10,2)
+              - column:
+                  name: total_value
+                  type: decimal(10,2)
+              - column:
+                  name: delivery_type
+                  type: varchar(255)
+              - column:
+                  name: created_at
+                  type: timestamp
+              - column:
+                  name: updated_at
+                  type: timestamp
+
+  - changeSet:
+      id: 01-create-tb-item-sale
+      author: antigravity
+      changes:
+        - createTable:
+            tableName: tb_item_sales
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: product_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_itemsale_product
+                    references: tb_products(id)
+              - column:
+                  name: sale_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_itemsale_sale
+                    references: tb_sales(id)
+              - column:
+                  name: quantity
+                  type: int
+              - column:
+                  name: unit_value
+                  type: decimal(10,2)
+              - column:
+                  name: discount
+                  type: decimal(10,2)
+              - column:
+                  name: total_value
+                  type: decimal(10,2)
+              - column:
+                  name: created_at
+                  type: timestamp
+              - column:
+                  name: updated_at
+                  type: timestamp

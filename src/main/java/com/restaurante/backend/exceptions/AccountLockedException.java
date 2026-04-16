@@ -1,0 +1,7 @@
+package com.restaurante.backend.exceptions;
+
+public class AccountLockedException extends RuntimeException {
+    public AccountLockedException(String message) {
+        super(message);
+    }
+}

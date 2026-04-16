@@ -1,0 +1,1202 @@
+databaseChangeLog:
+  - changeSet:
+      id: 02-insert-categories
+      author: antigravity
+      context: homolog
+      changes:
+        - insert:
+            tableName: tb_categories
+            columns:
+              - column: { name: name, value: "Bebidas" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_categories
+            columns:
+              - column: { name: name, value: "Pratos Principais" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_categories
+            columns:
+              - column: { name: name, value: "Entradas" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_categories
+            columns:
+              - column: { name: name, value: "Sobremesas" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_categories
+            columns:
+              - column: { name: name, value: "Combos" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_categories
+            columns:
+              - column: { name: name, value: "Grelhados" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_categories
+            columns:
+              - column: { name: name, value: "Massas" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+
+  - changeSet:
+      id: 02-insert-customers
+      author: antigravity
+      context: homolog
+      changes:
+        - insert:
+            tableName: tb_customers
+            columns:
+              - column: { name: name, value: "João Silva" }
+              - column: { name: cpf, value: "111.111.111-11" }
+              - column: { name: phone, value: "11999999999" }
+              - column: { name: birth_date, value: "1990-01-01" }
+              - column: { name: cep, value: "01001-000" }
+              - column: { name: logradouro, value: "Praça da Sé" }
+              - column: { name: uf, value: "SP" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_customers
+            columns:
+              - column: { name: name, value: "Maria Souza" }
+              - column: { name: cpf, value: "222.222.222-22" }
+              - column: { name: phone, value: "11988888888" }
+              - column: { name: birth_date, value: "1985-05-12" }
+              - column: { name: cep, value: "20040-002" }
+              - column: { name: logradouro, value: "Av. Rio Branco" }
+              - column: { name: uf, value: "RJ" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_customers
+            columns:
+              - column: { name: name, value: "Carlos Pereira" }
+              - column: { name: cpf, value: "333.333.333-33" }
+              - column: { name: phone, value: "11977777777" }
+              - column: { name: birth_date, value: "1992-10-20" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_customers
+            columns:
+              - column: { name: name, value: "Ana Souza" }
+              - column: { name: cpf, value: "444.444.444-44" }
+              - column: { name: phone, value: "11966666666" }
+              - column: { name: birth_date, value: "2000-02-28" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+
+  - changeSet:
+      id: 02-insert-products
+      author: antigravity
+      context: homolog
+      changes:
+        # ─── Bebidas (category_id: 1) ───────────────────────────────
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Coca-Cola 2L" }
+              - column: { name: sale_price, valueNumeric: "12.00" }
+              - column: { name: cost_price, valueNumeric: "8.00" }
+              - column: { name: category_id, valueNumeric: "1" }
+              - column: { name: image_url, value: "/images/products/coca-cola.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Guaraná 2L" }
+              - column: { name: sale_price, valueNumeric: "10.00" }
+              - column: { name: cost_price, valueNumeric: "6.00" }
+              - column: { name: category_id, valueNumeric: "1" }
+              - column: { name: image_url, value: "/images/products/guarana.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Água Mineral S/ Gás" }
+              - column: { name: sale_price, valueNumeric: "5.00" }
+              - column: { name: cost_price, valueNumeric: "2.50" }
+              - column: { name: category_id, valueNumeric: "1" }
+              - column: { name: image_url, value: "/images/products/agua.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Suco de Laranja Natural" }
+              - column: { name: sale_price, valueNumeric: "14.00" }
+              - column: { name: cost_price, valueNumeric: "6.00" }
+              - column: { name: category_id, valueNumeric: "1" }
+              - column: { name: image_url, value: "/images/products/suco-laranja.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Limonada Suíça" }
+              - column: { name: sale_price, valueNumeric: "16.00" }
+              - column: { name: cost_price, valueNumeric: "7.00" }
+              - column: { name: category_id, valueNumeric: "1" }
+              - column: { name: image_url, value: "/images/products/limonada.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        # ─── Pratos Principais (category_id: 2) ─────────────────────
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Feijoada Completa" }
+              - column: { name: sale_price, valueNumeric: "85.00" }
+              - column: { name: cost_price, valueNumeric: "40.00" }
+              - column: { name: category_id, valueNumeric: "2" }
+              - column: { name: image_url, value: "/images/products/feijoada.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Parmegiana de Mignon" }
+              - column: { name: sale_price, valueNumeric: "65.00" }
+              - column: { name: cost_price, valueNumeric: "35.00" }
+              - column: { name: category_id, valueNumeric: "2" }
+              - column: { name: image_url, value: "/images/products/parmegiana.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Picanha na Chapa" }
+              - column: { name: sale_price, valueNumeric: "120.00" }
+              - column: { name: cost_price, valueNumeric: "65.00" }
+              - column: { name: category_id, valueNumeric: "2" }
+              - column: { name: image_url, value: "/images/products/picanha.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Risoto de Camarão" }
+              - column: { name: sale_price, valueNumeric: "95.00" }
+              - column: { name: cost_price, valueNumeric: "50.00" }
+              - column: { name: category_id, valueNumeric: "2" }
+              - column: { name: image_url, value: "/images/products/risoto-camarao.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Estrogonofe de Frango" }
+              - column: { name: sale_price, valueNumeric: "45.00" }
+              - column: { name: cost_price, valueNumeric: "20.00" }
+              - column: { name: category_id, valueNumeric: "2" }
+              - column: { name: image_url, value: "/images/products/estrogonofe.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Frango ao Curry" }
+              - column: { name: sale_price, valueNumeric: "52.00" }
+              - column: { name: cost_price, valueNumeric: "25.00" }
+              - column: { name: category_id, valueNumeric: "2" }
+              - column: { name: image_url, value: "/images/products/frango-curry.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        # ─── Entradas (category_id: 3) ──────────────────────────────
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Bolinho de Bacalhau (6 un)" }
+              - column: { name: sale_price, valueNumeric: "38.00" }
+              - column: { name: cost_price, valueNumeric: "18.00" }
+              - column: { name: category_id, valueNumeric: "3" }
+              - column: { name: image_url, value: "/images/products/bolinho-bacalhau.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Caldo de Feijão" }
+              - column: { name: sale_price, valueNumeric: "22.00" }
+              - column: { name: cost_price, valueNumeric: "8.00" }
+              - column: { name: category_id, valueNumeric: "3" }
+              - column: { name: image_url, value: "/images/products/caldo-feijao.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Tábua de Frios" }
+              - column: { name: sale_price, valueNumeric: "55.00" }
+              - column: { name: cost_price, valueNumeric: "28.00" }
+              - column: { name: category_id, valueNumeric: "3" }
+              - column: { name: image_url, value: "/images/products/tabua-frios.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Bruschetta Italiana" }
+              - column: { name: sale_price, valueNumeric: "32.00" }
+              - column: { name: cost_price, valueNumeric: "14.00" }
+              - column: { name: category_id, valueNumeric: "3" }
+              - column: { name: image_url, value: "/images/products/bruschetta.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        # ─── Sobremesas (category_id: 4) ────────────────────────────
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Pudim de Leite Condensado" }
+              - column: { name: sale_price, valueNumeric: "18.00" }
+              - column: { name: cost_price, valueNumeric: "7.00" }
+              - column: { name: category_id, valueNumeric: "4" }
+              - column: { name: image_url, value: "/images/products/pudim.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Petit Gâteau com Sorvete" }
+              - column: { name: sale_price, valueNumeric: "28.00" }
+              - column: { name: cost_price, valueNumeric: "12.00" }
+              - column: { name: category_id, valueNumeric: "4" }
+              - column: { name: image_url, value: "/images/products/petit-gateau.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Brigadeiro Gourmet (3 un)" }
+              - column: { name: sale_price, valueNumeric: "15.00" }
+              - column: { name: cost_price, valueNumeric: "5.00" }
+              - column: { name: category_id, valueNumeric: "4" }
+              - column: { name: image_url, value: "/images/products/brigadeiro.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        # ─── Combos (category_id: 5) ─────────────────────────────────
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Combo Família (4 pessoas)" }
+              - column: { name: sale_price, valueNumeric: "180.00" }
+              - column: { name: cost_price, valueNumeric: "90.00" }
+              - column: { name: category_id, valueNumeric: "5" }
+              - column: { name: image_url, value: "/images/products/combo-familia.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Combo Executivo" }
+              - column: { name: sale_price, valueNumeric: "55.00" }
+              - column: { name: cost_price, valueNumeric: "28.00" }
+              - column: { name: category_id, valueNumeric: "5" }
+              - column: { name: image_url, value: "/images/products/combo-executivo.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Combo Casal Romântico" }
+              - column: { name: sale_price, valueNumeric: "128.00" }
+              - column: { name: cost_price, valueNumeric: "65.00" }
+              - column: { name: category_id, valueNumeric: "5" }
+              - column: { name: image_url, value: "/images/products/combo-casal.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        # ─── Grelhados (category_id: 6) ─────────────────────────────
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Salmão Grelhado" }
+              - column: { name: sale_price, valueNumeric: "88.00" }
+              - column: { name: cost_price, valueNumeric: "45.00" }
+              - column: { name: category_id, valueNumeric: "6" }
+              - column: { name: image_url, value: "/images/products/salmao.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Frango Grelhado com Legumes" }
+              - column: { name: sale_price, valueNumeric: "46.00" }
+              - column: { name: cost_price, valueNumeric: "22.00" }
+              - column: { name: category_id, valueNumeric: "6" }
+              - column: { name: image_url, value: "/images/products/frango-grelhado.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Costela Bovina na Brasa" }
+              - column: { name: sale_price, valueNumeric: "132.00" }
+              - column: { name: cost_price, valueNumeric: "70.00" }
+              - column: { name: category_id, valueNumeric: "6" }
+              - column: { name: image_url, value: "/images/products/costela.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        # ─── Massas (category_id: 7) ─────────────────────────────────
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Espaguete à Bolonhesa" }
+              - column: { name: sale_price, valueNumeric: "44.00" }
+              - column: { name: cost_price, valueNumeric: "20.00" }
+              - column: { name: category_id, valueNumeric: "7" }
+              - column: { name: image_url, value: "/images/products/espaguete.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Lasanha à Bolonhesa" }
+              - column: { name: sale_price, valueNumeric: "52.00" }
+              - column: { name: cost_price, valueNumeric: "24.00" }
+              - column: { name: category_id, valueNumeric: "7" }
+              - column: { name: image_url, value: "/images/products/lasanha.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Nhoque ao Sugo" }
+              - column: { name: sale_price, valueNumeric: "39.00" }
+              - column: { name: cost_price, valueNumeric: "17.00" }
+              - column: { name: category_id, valueNumeric: "7" }
+              - column: { name: image_url, value: "/images/products/nhoque.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_products
+            columns:
+              - column: { name: name, value: "Fettuccine ao Alfredo" }
+              - column: { name: sale_price, valueNumeric: "48.00" }
+              - column: { name: cost_price, valueNumeric: "22.00" }
+              - column: { name: category_id, valueNumeric: "7" }
+              - column: { name: image_url, value: "/images/products/fettuccine.jpg" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+
+  - changeSet:
+      id: 02-insert-sales
+      author: antigravity
+      context: homolog
+      changes:
+        # Venda 1
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "1" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "97.00" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "1" }
+              - column: { name: product_id, valueNumeric: "6" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "85.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "85.00" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "1" }
+              - column: { name: product_id, valueNumeric: "1" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "12.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "12.00" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+
+        # Venda 2
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "2" }
+              - column: { name: discount, valueNumeric: "5.00" }
+              - column: { name: total_value, valueNumeric: "70.00" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "2" }
+              - column: { name: product_id, valueNumeric: "7" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "65.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "65.00" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "2" }
+              - column: { name: product_id, valueNumeric: "2" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "10.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "10.00" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+
+        # Venda 3
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "3" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "125.00" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "3" }
+              - column: { name: product_id, valueNumeric: "8" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "120.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "120.00" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "3" }
+              - column: { name: product_id, valueNumeric: "3" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "5.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "5.00" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+
+        # Venda 4
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "4" }
+              - column: { name: discount, valueNumeric: "10.00" }
+              - column: { name: total_value, valueNumeric: "188.00" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "4" }
+              - column: { name: product_id, valueNumeric: "9" }
+              - column: { name: quantity, valueNumeric: "2" }
+              - column: { name: unit_value, valueNumeric: "95.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "190.00" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "4" }
+              - column: { name: product_id, valueNumeric: "5" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "16.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "16.00" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+
+        # Venda 5
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "1" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "45.00" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "5" }
+              - column: { name: product_id, valueNumeric: "10" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "45.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "45.00" }
+              - column: { name: created_at, valueComputed: "now()" }
+              - column: { name: updated_at, valueComputed: "now()" }
+
+  - changeSet:
+      id: 03-insert-mock-sales-history
+      author: antigravity
+      context: homolog
+      changes:
+        # Venda 6
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "3" }
+              - column: { name: discount, valueNumeric: "25.50" }
+              - column: { name: total_value, valueNumeric: "229.50" }
+              - column: { name: created_at, value: "2026-03-26 17:22:00" }
+              - column: { name: updated_at, value: "2026-03-26 17:22:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "6" }
+              - column: { name: product_id, valueNumeric: "10" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "45.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "45.00" }
+              - column: { name: created_at, value: "2026-03-26 17:22:00" }
+              - column: { name: updated_at, value: "2026-03-26 17:22:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "6" }
+              - column: { name: product_id, valueNumeric: "10" }
+              - column: { name: quantity, valueNumeric: "2" }
+              - column: { name: unit_value, valueNumeric: "45.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "90.00" }
+              - column: { name: created_at, value: "2026-03-26 17:22:00" }
+              - column: { name: updated_at, value: "2026-03-26 17:22:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "6" }
+              - column: { name: product_id, valueNumeric: "8" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "120.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "120.00" }
+              - column: { name: created_at, value: "2026-03-26 17:22:00" }
+              - column: { name: updated_at, value: "2026-03-26 17:22:00" }
+        # Venda 7
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "4" }
+              - column: { name: discount, valueNumeric: "7.50" }
+              - column: { name: total_value, valueNumeric: "67.50" }
+              - column: { name: created_at, value: "2026-03-27 17:04:00" }
+              - column: { name: updated_at, value: "2026-03-27 17:04:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "7" }
+              - column: { name: product_id, valueNumeric: "7" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "65.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "65.00" }
+              - column: { name: created_at, value: "2026-03-27 17:04:00" }
+              - column: { name: updated_at, value: "2026-03-27 17:04:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "7" }
+              - column: { name: product_id, valueNumeric: "3" }
+              - column: { name: quantity, valueNumeric: "2" }
+              - column: { name: unit_value, valueNumeric: "5.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "10.00" }
+              - column: { name: created_at, value: "2026-03-27 17:04:00" }
+              - column: { name: updated_at, value: "2026-03-27 17:04:00" }
+        # Venda 8
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "1" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "14.00" }
+              - column: { name: created_at, value: "2026-03-28 18:12:00" }
+              - column: { name: updated_at, value: "2026-03-28 18:12:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "8" }
+              - column: { name: product_id, valueNumeric: "4" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "14.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "14.00" }
+              - column: { name: created_at, value: "2026-03-28 18:12:00" }
+              - column: { name: updated_at, value: "2026-03-28 18:12:00" }
+        # Venda 9
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "3" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "216.00" }
+              - column: { name: created_at, value: "2026-03-29 19:45:00" }
+              - column: { name: updated_at, value: "2026-03-29 19:45:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "9" }
+              - column: { name: product_id, valueNumeric: "3" }
+              - column: { name: quantity, valueNumeric: "2" }
+              - column: { name: unit_value, valueNumeric: "5.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "10.00" }
+              - column: { name: created_at, value: "2026-03-29 19:45:00" }
+              - column: { name: updated_at, value: "2026-03-29 19:45:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "9" }
+              - column: { name: product_id, valueNumeric: "7" }
+              - column: { name: quantity, valueNumeric: "2" }
+              - column: { name: unit_value, valueNumeric: "65.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "130.00" }
+              - column: { name: created_at, value: "2026-03-29 19:45:00" }
+              - column: { name: updated_at, value: "2026-03-29 19:45:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "9" }
+              - column: { name: product_id, valueNumeric: "12" }
+              - column: { name: quantity, valueNumeric: "2" }
+              - column: { name: unit_value, valueNumeric: "38.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "76.00" }
+              - column: { name: created_at, value: "2026-03-29 19:45:00" }
+              - column: { name: updated_at, value: "2026-03-29 19:45:00" }
+        # Venda 10
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "1" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "12.00" }
+              - column: { name: created_at, value: "2026-03-30 20:36:00" }
+              - column: { name: updated_at, value: "2026-03-30 20:36:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "10" }
+              - column: { name: product_id, valueNumeric: "1" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "12.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "12.00" }
+              - column: { name: created_at, value: "2026-03-30 20:36:00" }
+              - column: { name: updated_at, value: "2026-03-30 20:36:00" }
+        # Venda 11
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "3" }
+              - column: { name: discount, valueNumeric: "20.70" }
+              - column: { name: total_value, valueNumeric: "186.30" }
+              - column: { name: created_at, value: "2026-03-31 22:19:00" }
+              - column: { name: updated_at, value: "2026-03-31 22:19:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "11" }
+              - column: { name: product_id, valueNumeric: "7" }
+              - column: { name: quantity, valueNumeric: "2" }
+              - column: { name: unit_value, valueNumeric: "65.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "130.00" }
+              - column: { name: created_at, value: "2026-03-31 22:19:00" }
+              - column: { name: updated_at, value: "2026-03-31 22:19:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "11" }
+              - column: { name: product_id, valueNumeric: "7" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "65.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "65.00" }
+              - column: { name: created_at, value: "2026-03-31 22:19:00" }
+              - column: { name: updated_at, value: "2026-03-31 22:19:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "11" }
+              - column: { name: product_id, valueNumeric: "1" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "12.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "12.00" }
+              - column: { name: created_at, value: "2026-03-31 22:19:00" }
+              - column: { name: updated_at, value: "2026-03-31 22:19:00" }
+        # Venda 12
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "2" }
+              - column: { name: discount, valueNumeric: "12.00" }
+              - column: { name: total_value, valueNumeric: "108.00" }
+              - column: { name: created_at, value: "2026-04-01 18:43:00" }
+              - column: { name: updated_at, value: "2026-04-01 18:43:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "12" }
+              - column: { name: product_id, valueNumeric: "8" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "120.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "120.00" }
+              - column: { name: created_at, value: "2026-04-01 18:43:00" }
+              - column: { name: updated_at, value: "2026-04-01 18:43:00" }
+        # Venda 13
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "1" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "313.00" }
+              - column: { name: created_at, value: "2026-04-02 22:19:00" }
+              - column: { name: updated_at, value: "2026-04-02 22:19:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "13" }
+              - column: { name: product_id, valueNumeric: "12" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "38.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "38.00" }
+              - column: { name: created_at, value: "2026-04-02 22:19:00" }
+              - column: { name: updated_at, value: "2026-04-02 22:19:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "13" }
+              - column: { name: product_id, valueNumeric: "9" }
+              - column: { name: quantity, valueNumeric: "2" }
+              - column: { name: unit_value, valueNumeric: "95.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "190.00" }
+              - column: { name: created_at, value: "2026-04-02 22:19:00" }
+              - column: { name: updated_at, value: "2026-04-02 22:19:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "13" }
+              - column: { name: product_id, valueNumeric: "6" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "85.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "85.00" }
+              - column: { name: created_at, value: "2026-04-02 22:19:00" }
+              - column: { name: updated_at, value: "2026-04-02 22:19:00" }
+        # Venda 14
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "1" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "119.00" }
+              - column: { name: created_at, value: "2026-04-03 19:18:00" }
+              - column: { name: updated_at, value: "2026-04-03 19:18:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "14" }
+              - column: { name: product_id, valueNumeric: "9" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "95.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "95.00" }
+              - column: { name: created_at, value: "2026-04-03 19:18:00" }
+              - column: { name: updated_at, value: "2026-04-03 19:18:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "14" }
+              - column: { name: product_id, valueNumeric: "1" }
+              - column: { name: quantity, valueNumeric: "2" }
+              - column: { name: unit_value, valueNumeric: "12.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "24.00" }
+              - column: { name: created_at, value: "2026-04-03 19:18:00" }
+              - column: { name: updated_at, value: "2026-04-03 19:18:00" }
+        # Venda 15
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "3" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "349.00" }
+              - column: { name: created_at, value: "2026-04-04 20:22:00" }
+              - column: { name: updated_at, value: "2026-04-04 20:22:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "15" }
+              - column: { name: product_id, valueNumeric: "8" }
+              - column: { name: quantity, valueNumeric: "2" }
+              - column: { name: unit_value, valueNumeric: "120.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "240.00" }
+              - column: { name: created_at, value: "2026-04-04 20:22:00" }
+              - column: { name: updated_at, value: "2026-04-04 20:22:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "15" }
+              - column: { name: product_id, valueNumeric: "3" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "5.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "5.00" }
+              - column: { name: created_at, value: "2026-04-04 20:22:00" }
+              - column: { name: updated_at, value: "2026-04-04 20:22:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "15" }
+              - column: { name: product_id, valueNumeric: "11" }
+              - column: { name: quantity, valueNumeric: "2" }
+              - column: { name: unit_value, valueNumeric: "52.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "104.00" }
+              - column: { name: created_at, value: "2026-04-04 20:22:00" }
+              - column: { name: updated_at, value: "2026-04-04 20:22:00" }
+        # Venda 16
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "1" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "90.00" }
+              - column: { name: created_at, value: "2026-04-05 22:38:00" }
+              - column: { name: updated_at, value: "2026-04-05 22:38:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "16" }
+              - column: { name: product_id, valueNumeric: "4" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "14.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "14.00" }
+              - column: { name: created_at, value: "2026-04-05 22:38:00" }
+              - column: { name: updated_at, value: "2026-04-05 22:38:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "16" }
+              - column: { name: product_id, valueNumeric: "12" }
+              - column: { name: quantity, valueNumeric: "2" }
+              - column: { name: unit_value, valueNumeric: "38.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "76.00" }
+              - column: { name: created_at, value: "2026-04-05 22:38:00" }
+              - column: { name: updated_at, value: "2026-04-05 22:38:00" }
+        # Venda 17
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "2" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "5.00" }
+              - column: { name: created_at, value: "2026-04-06 20:16:00" }
+              - column: { name: updated_at, value: "2026-04-06 20:16:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "17" }
+              - column: { name: product_id, valueNumeric: "3" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "5.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "5.00" }
+              - column: { name: created_at, value: "2026-04-06 20:16:00" }
+              - column: { name: updated_at, value: "2026-04-06 20:16:00" }
+        # Venda 18
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "2" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "32.00" }
+              - column: { name: created_at, value: "2026-04-07 17:01:00" }
+              - column: { name: updated_at, value: "2026-04-07 17:01:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "18" }
+              - column: { name: product_id, valueNumeric: "5" }
+              - column: { name: quantity, valueNumeric: "2" }
+              - column: { name: unit_value, valueNumeric: "16.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "32.00" }
+              - column: { name: created_at, value: "2026-04-07 17:01:00" }
+              - column: { name: updated_at, value: "2026-04-07 17:01:00" }
+        # Venda 19
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "2" }
+              - column: { name: discount, valueNumeric: "23.00" }
+              - column: { name: total_value, valueNumeric: "207.00" }
+              - column: { name: created_at, value: "2026-04-08 19:05:00" }
+              - column: { name: updated_at, value: "2026-04-08 19:05:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "19" }
+              - column: { name: product_id, valueNumeric: "2" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "10.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "10.00" }
+              - column: { name: created_at, value: "2026-04-08 19:05:00" }
+              - column: { name: updated_at, value: "2026-04-08 19:05:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "19" }
+              - column: { name: product_id, valueNumeric: "10" }
+              - column: { name: quantity, valueNumeric: "2" }
+              - column: { name: unit_value, valueNumeric: "45.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "90.00" }
+              - column: { name: created_at, value: "2026-04-08 19:05:00" }
+              - column: { name: updated_at, value: "2026-04-08 19:05:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "19" }
+              - column: { name: product_id, valueNumeric: "7" }
+              - column: { name: quantity, valueNumeric: "2" }
+              - column: { name: unit_value, valueNumeric: "65.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "130.00" }
+              - column: { name: created_at, value: "2026-04-08 19:05:00" }
+              - column: { name: updated_at, value: "2026-04-08 19:05:00" }
+        # Venda 20
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "3" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "244.00" }
+              - column: { name: created_at, value: "2026-04-09 18:46:00" }
+              - column: { name: updated_at, value: "2026-04-09 18:46:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "20" }
+              - column: { name: product_id, valueNumeric: "12" }
+              - column: { name: quantity, valueNumeric: "2" }
+              - column: { name: unit_value, valueNumeric: "38.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "76.00" }
+              - column: { name: created_at, value: "2026-04-09 18:46:00" }
+              - column: { name: updated_at, value: "2026-04-09 18:46:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "20" }
+              - column: { name: product_id, valueNumeric: "12" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "38.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "38.00" }
+              - column: { name: created_at, value: "2026-04-09 18:46:00" }
+              - column: { name: updated_at, value: "2026-04-09 18:46:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "20" }
+              - column: { name: product_id, valueNumeric: "7" }
+              - column: { name: quantity, valueNumeric: "2" }
+              - column: { name: unit_value, valueNumeric: "65.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "130.00" }
+              - column: { name: created_at, value: "2026-04-09 18:46:00" }
+              - column: { name: updated_at, value: "2026-04-09 18:46:00" }
+        # Venda 21
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "1" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "85.00" }
+              - column: { name: created_at, value: "2026-04-10 17:33:00" }
+              - column: { name: updated_at, value: "2026-04-10 17:33:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "21" }
+              - column: { name: product_id, valueNumeric: "6" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "85.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "85.00" }
+              - column: { name: created_at, value: "2026-04-10 17:33:00" }
+              - column: { name: updated_at, value: "2026-04-10 17:33:00" }
+        # Venda 22
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "2" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "65.00" }
+              - column: { name: created_at, value: "2026-04-11 18:25:00" }
+              - column: { name: updated_at, value: "2026-04-11 18:25:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "22" }
+              - column: { name: product_id, valueNumeric: "2" }
+              - column: { name: quantity, valueNumeric: "2" }
+              - column: { name: unit_value, valueNumeric: "10.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "20.00" }
+              - column: { name: created_at, value: "2026-04-11 18:25:00" }
+              - column: { name: updated_at, value: "2026-04-11 18:25:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "22" }
+              - column: { name: product_id, valueNumeric: "10" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "45.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "45.00" }
+              - column: { name: created_at, value: "2026-04-11 18:25:00" }
+              - column: { name: updated_at, value: "2026-04-11 18:25:00" }
+        # Venda 23
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "3" }
+              - column: { name: discount, valueNumeric: "36.00" }
+              - column: { name: total_value, valueNumeric: "324.00" }
+              - column: { name: created_at, value: "2026-04-12 22:54:00" }
+              - column: { name: updated_at, value: "2026-04-12 22:54:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "23" }
+              - column: { name: product_id, valueNumeric: "8" }
+              - column: { name: quantity, valueNumeric: "2" }
+              - column: { name: unit_value, valueNumeric: "120.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "240.00" }
+              - column: { name: created_at, value: "2026-04-12 22:54:00" }
+              - column: { name: updated_at, value: "2026-04-12 22:54:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "23" }
+              - column: { name: product_id, valueNumeric: "8" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "120.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "120.00" }
+              - column: { name: created_at, value: "2026-04-12 22:54:00" }
+              - column: { name: updated_at, value: "2026-04-12 22:54:00" }
+        # Venda 24
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "1" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "97.00" }
+              - column: { name: created_at, value: "2026-04-13 15:40:00" }
+              - column: { name: updated_at, value: "2026-04-13 15:40:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "24" }
+              - column: { name: product_id, valueNumeric: "5" }
+              - column: { name: quantity, valueNumeric: "2" }
+              - column: { name: unit_value, valueNumeric: "16.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "32.00" }
+              - column: { name: created_at, value: "2026-04-13 15:40:00" }
+              - column: { name: updated_at, value: "2026-04-13 15:40:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "24" }
+              - column: { name: product_id, valueNumeric: "10" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "45.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "45.00" }
+              - column: { name: created_at, value: "2026-04-13 15:40:00" }
+              - column: { name: updated_at, value: "2026-04-13 15:40:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "24" }
+              - column: { name: product_id, valueNumeric: "2" }
+              - column: { name: quantity, valueNumeric: "2" }
+              - column: { name: unit_value, valueNumeric: "10.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "20.00" }
+              - column: { name: created_at, value: "2026-04-13 15:40:00" }
+              - column: { name: updated_at, value: "2026-04-13 15:40:00" }
+        # Venda 25
+        - insert:
+            tableName: tb_sales
+            columns:
+              - column: { name: customer_id, valueNumeric: "4" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "162.00" }
+              - column: { name: created_at, value: "2026-04-14 21:15:00" }
+              - column: { name: updated_at, value: "2026-04-14 21:15:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "25" }
+              - column: { name: product_id, valueNumeric: "1" }
+              - column: { name: quantity, valueNumeric: "1" }
+              - column: { name: unit_value, valueNumeric: "12.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "12.00" }
+              - column: { name: created_at, value: "2026-04-14 21:15:00" }
+              - column: { name: updated_at, value: "2026-04-14 21:15:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "25" }
+              - column: { name: product_id, valueNumeric: "7" }
+              - column: { name: quantity, valueNumeric: "2" }
+              - column: { name: unit_value, valueNumeric: "65.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "130.00" }
+              - column: { name: created_at, value: "2026-04-14 21:15:00" }
+              - column: { name: updated_at, value: "2026-04-14 21:15:00" }
+        - insert:
+            tableName: tb_item_sales
+            columns:
+              - column: { name: sale_id, valueNumeric: "25" }
+              - column: { name: product_id, valueNumeric: "2" }
+              - column: { name: quantity, valueNumeric: "2" }
+              - column: { name: unit_value, valueNumeric: "10.00" }
+              - column: { name: discount, valueNumeric: "0.00" }
+              - column: { name: total_value, valueNumeric: "20.00" }
+              - column: { name: created_at, value: "2026-04-14 21:15:00" }
+              - column: { name: updated_at, value: "2026-04-14 21:15:00" }

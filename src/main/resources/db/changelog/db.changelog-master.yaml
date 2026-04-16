@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - include:
+      file: classpath:db/changelog/changesets/01-create-schema.yaml
+  - include:
+      file: classpath:db/changelog/changesets/02-insert-homolog-data.yaml
+  - include:
+      file: classpath:db/changelog/changesets/03-create-security-tables.yaml
+  - include:
+      file: classpath:db/changelog/changesets/04-add-email-and-initial-users.yaml
+  - include:
+      file: classpath:db/changelog/changesets/05-add-status-to-sale.yaml
+  - include:
+      file: classpath:db/changelog/changesets/06-create-user-permissions-table.yaml
