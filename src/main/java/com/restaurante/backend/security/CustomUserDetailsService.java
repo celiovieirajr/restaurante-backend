@@ -7,10 +7,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
 @Service
+@Slf4j
 public class CustomUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;
@@ -30,6 +32,8 @@ public class CustomUserDetailsService implements UserDetailsService {
         if (user.getPermissions() != null) {
             user.getPermissions().forEach(p -> authorities.add(new SimpleGrantedAuthority(p)));
         }
+
+        log.info("AUTH_DEBUG: Usuário [{}] carregado com authorities: {}", username, authorities);
 
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(),

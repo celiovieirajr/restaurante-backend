@@ -21,33 +21,33 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping
-    @PreAuthorize("hasRole('MASTER')")
+    @PreAuthorize("hasAuthority('ROLE_MASTER')")
     public ResponseEntity<List<UserResponseDTO>> findAll() {
         return ResponseEntity.ok(userService.findAll());
     }
 
     @PostMapping
-    @PreAuthorize("hasRole('MASTER')")
+    @PreAuthorize("hasAuthority('ROLE_MASTER')")
     public ResponseEntity<UserResponseDTO> createUser(@Valid @RequestBody UserRequestDTO dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(dto));
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('MASTER')")
+    @PreAuthorize("hasAuthority('ROLE_MASTER')")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
         return ResponseEntity.noContent().build();
     }
 
     @PatchMapping("/{id}/password")
-    @PreAuthorize("hasRole('MASTER')")
+    @PreAuthorize("hasAuthority('ROLE_MASTER')")
     public ResponseEntity<Void> updatePassword(@PathVariable Long id, @Valid @RequestBody PasswordUpdateRequestDTO dto) {
         userService.updatePassword(id, dto.getNewPassword());
         return ResponseEntity.noContent().build();
     }
 
     @PatchMapping("/{id}/permissions")
-    @PreAuthorize("hasRole('MASTER')")
+    @PreAuthorize("hasAuthority('ROLE_MASTER')")
     public ResponseEntity<UserResponseDTO> updatePermissions(@PathVariable Long id, @RequestBody java.util.Set<String> permissions) {
         return ResponseEntity.ok(userService.updatePermissions(id, permissions));
     }
